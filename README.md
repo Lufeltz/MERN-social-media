@@ -21,3 +21,8 @@ Este projeto é uma aplicação de mídia social completa que permite aos usuár
 - **morgan** (registro)
 - **jsonwebtoken** (autenticação)
 - **mongoose** (interação com o MongoDB)
+
+
+## Modelagem do banco de dados
+
+![](./imgs/data-modeling-erd-diagrams.png)
