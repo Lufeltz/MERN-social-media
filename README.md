@@ -25,4 +25,4 @@ Este projeto é uma aplicação de mídia social completa que permite aos usuár
 
 ## Modelagem do banco de dados
 
-![](./imgs/data-modeling-erd-diagrams.png)
+![](./server/imgs/data-modeling-erd-diagrams.png)
