@@ -11,6 +11,7 @@ import WidgetWrapper from "../../components/WidgetWrapper";
 import { UseSelector, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import UserImage from "../../components/UserImage";
 
 const UserWidget = ({ userId, picturePath }) => {
   const [user, setUser] = useState(null);
@@ -30,5 +31,56 @@ const UserWidget = ({ userId, picturePath }) => {
     setUser(data);
   };
 
-  
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  // could be a loading component here while the user is waiting
+  if (!user) {
+    return null;
+  }
+
+  const {
+    firstName,
+    lastName,
+    location,
+    occupation,
+    viewedProfile,
+    impressions,
+    friends,
+  } = user;
+
+  return (
+    <WidgetWrapper>
+      {/* FIRST ROW */}
+      <FlexBetween
+        gap="0.5rem"
+        pb="1.1rem"
+        onClick={() => navigate(`/profile/${userId}`)}
+      >
+        <FlexBetween gap="1rem">
+          <UserImage image={picturePath}>
+            <Box>
+              <Typography
+                variant="h4"
+                color={dark}
+                fontWeight="500"
+                sx={{
+                  "&:hover": {
+                    color: palette.primary.light,
+                    cursor: "pointer",
+                  },
+                }}
+              >
+                {firstName}
+                {lastName}
+              </Typography>
+              <Typography color={medium}>{friends.length} friends</Typography>
+            </Box>
+          </UserImage>
+        </FlexBetween>
+        
+      </FlexBetween>
+    </WidgetWrapper>
+  );
 };
