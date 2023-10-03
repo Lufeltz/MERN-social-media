@@ -82,6 +82,13 @@ const PostWidget = ({
             <Typography>{likeCount}</Typography>
           </FlexBetween>
 
+          {/* COMMENTS SECTION */}
+          <FlexBetween gap="0.3rem">
+            <IconButton onClick={() => setIsComments(!isComments)}>
+              <ChatBubbleOutlineOutlined />
+            </IconButton>
+            <Typography>{comments.length}</Typography>
+          </FlexBetween>
         </FlexBetween>
 
       </FlexBetween>
