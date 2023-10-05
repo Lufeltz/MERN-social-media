@@ -14,7 +14,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPost } from "../../state";
 
 const PostWidget = ({
-  key,
   postId,
   postUserId,
   name,
@@ -33,6 +32,7 @@ const PostWidget = ({
   const likeCount = Object.keys(likes).length;
 
   const { palette } = useTheme();
+  const main = palette.neutral.main;
   const primary = palette.primary.main;
 
   const patchLike = async () => {
